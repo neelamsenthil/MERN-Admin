@@ -8,12 +8,16 @@ const TeacherLogin = () => {
   const [password, setPassword] = useState('')
   const [success, setSuccess] = useState(false)
   const [error, setError] = useState(false)
+  const [emailExist, setEmailExist] = useState(false)
+  
   const navigate = useNavigate()
   // // console.log(mail);
   // console.log(success);
 
 
   const handleClick = async () => {
+    setError(false)
+    setEmailExist(false)
     try {
       if (mail.trim() !== "" && password.trim() !== "") {
         await fetch("http://localhost:4000/api/teacher/login", {
@@ -37,13 +41,20 @@ const TeacherLogin = () => {
               }, 4000)
 
             }
+
+            if (!res.ok) {
+              setEmailExist(true)
+              console.log(res);
+              
+              
+            }
           })
 
 
       }
     } catch (error) {
-
       setError(true)
+
       console.log(error);
 
 
@@ -62,7 +73,9 @@ const TeacherLogin = () => {
           <div className='bg-transparent border-2 rounded  w-[55%]   mx-auto  px-5 py-3 '>
             <p className='py-4 text-center text-sky-600 font-thin text-3xl'>Teacher Login</p>
             {success ? <p className='lg:text-xl pb-2 text-green-700  font-thin'>Login Successfully...</p> : <></>}
+            {emailExist ? <p className='lg:text-xl pb-2 text-red-700  font-thin'>User Email Already Exist</p> : <></>}
             {error ? <p className='lg:text-xl pb-2 text-red-700  font-thin'>Error</p> : <></>}
+
             <div className='flex flex-col gap-5'>
               <input onChange={(e) => setMail(e.target.value)} className='outline-none py-3 px-3 rounded' type='email' name='email' placeholder='Enter email' value={mail} required />
               <input onChange={(e) => setPassword(e.target.value)} className='outline-none py-3 px-3 rounded' type="password" name='password' placeholder='Enter Password' value={password} required />

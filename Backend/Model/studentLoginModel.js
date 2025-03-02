@@ -1,11 +1,11 @@
 const mongoose = require('mongoose')
 
-const studentLoginSchema = mongoose.Schema(
+const studentLogin = new mongoose.Schema(
     {
         email: { type: String, required: true, unique: true },
-        password: { type: String, required: true },
-
+        password: { type: String, required: true }
     }
+
 )
 
-module.exports = mongoose.model('Student-Login' , studentLoginSchema)
+module.exports = mongoose.model('Student-Login', studentLogin)
