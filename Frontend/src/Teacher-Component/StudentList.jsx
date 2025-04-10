@@ -48,45 +48,43 @@ const StudentList = () => {
           <p className='text-center text-sky-600 font-thin text-3xl'>Student List</p>
         </div>
 
-        <div className='pt-10'>
-        {mainList == '' ? <div className='mx-10 lg:mx-20 pt-10 lg:pt-20'><p className='text-xl text-center lg:text-2xl text-white '>Empty List :(</p></div> : <></>}
-
-        </div>
+        {mainList == '' ? <div className='mx-10 lg:mx-20 pt-10 lg:pt-20'><p className='text-xl text-center lg:text-2xl text-white '>Empty List :(</p></div> :
 
 
-        <table className='border-2 mx-auto mt-20 text-white w-[55%]   '>
-          <thead className='border-2 '>
-            <tr className='text-2xl '>
-              <th className='border-2 px-2 py-3'>no</th>
-              <th className='border-2 px-2'>name</th>
-              <th className='border-2 px-2'>age</th>
-              <th className='border-2 px-2'>Course</th>
-              <th className='border-2 px-2'>year</th>
-              <th className='border-2 px-2'>Delete</th>
 
+          <table className='border-2 mx-auto mt-20 text-white w-[55%]   '>
+            <thead className='border-2 '>
+              <tr className='text-2xl '>
+                <th className='border-2 px-2 py-3'>no</th>
+                <th className='border-2 px-2'>name</th>
+                <th className='border-2 px-2'>age</th>
+                <th className='border-2 px-2'>Course</th>
+                <th className='border-2 px-2'>year</th>
+                <th className='border-2 px-2'>Delete</th>
 
-            </tr>
-
-          </thead>
-
-          <tbody>
-            {mainList.map((item, index) => {
-              return <tr key={index} className='text-xl'>
-                <td className='border-2 px-2 py-3'>{index + 1}</td>
-                <td className='border-2 px-2'>{item.name}</td>
-                <td className='border-2 px-2'>{item.age}</td>
-                <td className='border-2 px-2'>{item.course}</td>
-                <td className='border-2 px-2'>{item.year}</td>
-                <td onClick={()=>handleClick(item._id)} className='border-2  px-2 '><img className='w-8 cursor-pointer' src={deleteImg} alt="delete" /></td>
 
               </tr>
 
+            </thead>
 
-            })}
+            <tbody>
+              {mainList.map((item, index) => {
+                return <tr key={index} className='text-xl'>
+                  <td className='border-2 px-2 py-3'>{index + 1}</td>
+                  <td className='border-2 px-2'>{item.name}</td>
+                  <td className='border-2 px-2'>{item.age}</td>
+                  <td className='border-2 px-2'>{item.course}</td>
+                  <td className='border-2 px-2'>{item.year}</td>
+                  <td onClick={() => handleClick(item._id)} className='border-2  px-2 '><img className='w-8 cursor-pointer' src={deleteImg} alt="delete" /></td>
 
-          </tbody>
+                </tr>
 
-        </table>
+
+              })}
+
+            </tbody>
+
+          </table>}
       </div>
 
     </>

@@ -48,7 +48,7 @@ const Edit = () => {
                 setEditAge('')
                 setEditCourse('')
                 setEditYear('')
-                navigate('/list')
+                navigate(`/list/${editId}`)
               }, 4000)
 
 
@@ -72,7 +72,7 @@ const Edit = () => {
     <>
       <div className='bg-[#161513] h-screen  '>
         <div className='pl-5 pt-5 '>
-          <img onClick={() => navigate('/list')} className='cursor-pointer w-7 ' src={icon} alt="icon" />
+          <img onClick={() => navigate(`/list/${editId}`)} className='cursor-pointer w-7 ' src={icon} alt="icon" />
         </div>
 
         <div className='pt-10'>

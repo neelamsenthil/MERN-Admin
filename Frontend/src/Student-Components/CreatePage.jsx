@@ -31,7 +31,7 @@ const CreatePage = () => {
             setAge('')
             setCourse('')
             setYear('')
-            navigate('/list')
+            navigate(`/list/${res.data._id}`)
           }, 4000)
         })
 

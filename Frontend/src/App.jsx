@@ -20,7 +20,7 @@ function App() {
         <Route path="/delete/:id" element={<DeleteList />} />
         <Route path="/studentlogin" element={<StudentLogin />} />
         <Route path="/create" element={<CreatePage />}/>
-        <Route path="/list" element={<List />} />
+        <Route path="/list/:id" element={<List />} />
         <Route path="/edit/:id" element={<Edit />} />
       </Routes>
 
